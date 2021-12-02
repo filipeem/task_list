@@ -1,32 +1,24 @@
-<!DOCTYPE html>
-<html>
 <head>
 <style>
-.button {
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-
+body {background-color: white;}
+h1 {color: red;}
+h4 {color: white; background-color: grey;
+    border: 1px solid powderblue;
+    padding: 20px;
+    margin: 50px;}
 </style>
 </head>
-<body>
 
 <h1>Lista de Tarefas</h1>
 <h3>Tarefas já cadastradas:</h3>
 <% @tasks.each do |task| %>
-  <p><%= task.description %></p>
-  <p><button> <%= link_to 'Editar', edit_task_path(task) %> </button>
+  <h4><%= task.description %>
+  <div style="color: red;"><%= if task.status == true 
+          'executada' 
+          else
+          'pendente'
+           end%></div>
+  <div><button> <%= link_to 'Editar', edit_task_path(task) %> </button>
   <button> <%= link_to 'Apagar', task_path(task), 
-  method: :delete, data: { confirm: 'Quer apagar esta tarefa?' }%></button></p>
+  method: :delete, data: { confirm: 'Quer apagar esta tarefa?' }%></button></div></h4>
 <% end %>
-
-</body>
-</html>
