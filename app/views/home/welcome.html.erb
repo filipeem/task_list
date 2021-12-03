@@ -1,24 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<style>
-body {background-color: white;}
-h1 {color: red;}
-h4 {color: white; background-color: grey;
-    border: 1px solid powderblue;
-    padding: 20px;
-    margin: 50px;}
-</style>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <h1>Lista de Tarefas</h1>
-<h3>Tarefas já cadastradas:</h3>
-<% @tasks.each do |task| %>
-  <h4><%= task.description %>
-  <div style="color: red;"><%= if task.status == true 
+<div class="container mt-3">
+<h3>Tarefas já cadastradas:</h3> 
+<div style='text-align:right'><button type="button" class="btn btn-outline-primary"> <%= link_to 'Nova tarefa', new_task_path %> </button></div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Status</th>
+        <th>Editar</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+      <td><%= task.description %></td>
+      <td><%= if task.status == true 
           'executada' 
           else
           'pendente'
-           end%></div>
-  <div><button> <%= link_to 'Editar', edit_task_path(task) %> </button>
-  <button> <%= link_to 'Apagar', task_path(task), 
-  method: :delete, data: { confirm: 'Quer apagar esta tarefa?' }%></button></div></h4>
-<% end %>
+           end%></td>
+      <td><button type="button" class="btn btn-outline-primary"> <%= link_to 'Editar', edit_task_path(task) %> </button>
+          <button type="button" class="btn btn-outline-danger"> <%= link_to 'Apagar', task_path(task), 
+          method: :delete, data: { confirm: 'Quer apagar esta tarefa?' }%></button></td>
+          <% end %>
+      </tr>
+    </tbody>
+</table>
+</div>
