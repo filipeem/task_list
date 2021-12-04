@@ -1,7 +1,12 @@
+<h2>Editar Tarefa</h2>
 <%= form_for @task do |f| %>
   <%= f.label :description, 'Descrição' %>
   <%= f.text_field :description %>
-  <%= f.label :status, 'Status' %>
+  <%= f.label :deadline, 'Prazo' %>
+  <%= f.datetime_field :deadline %>
+  <%= f.label :priority, 'Prioridade' %>
+  <%= f.select :priority, options_for_select([['Alta', 1], ['Média', 2], ['Baixa', 3]], 2) %>
+  <%= f.label :status, 'Concluída' %>
   <%= f.check_box :status %>
   <%= f.submit 'Editar' %>
 <% end %>
