@@ -8,15 +8,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<h1 style='text-align:center'>Gerenciador de Tarefas</h1>
-<%= form_with url: search_path, method: :get do %>
-  <%= label_tag :q, 'Busca:' %>
-  <%= text_field_tag :q %>
-  <%= submit_tag 'Pesquisar' %>
-<% end %>
-<hr>
+
 <div class="container mt-3">
-<h3>Tarefas cadastradas:</h3> 
+<h3>Resultado da Busca:</h3> 
 <div style='text-align:right'><button type="button" class="btn btn-outline-primary"> <%= link_to 'Nova tarefa', new_task_path %> </button></div>
 <table class="table table-striped">
     <thead>
@@ -53,4 +47,3 @@
     </tbody>
 </table>
 </div>
-<hr>
