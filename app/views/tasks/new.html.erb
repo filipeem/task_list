@@ -1,5 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Gerenciador de Tarefas</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
 
-<h2>Nova Tarefa</h2>
+<div class="container mt-3">
+<h3>Nova Tarefa</h3>
+<hr>
 <%= form_with model: Task.new do |f| %>
   <%= f.label :description, 'Descrição' %>
   <%= f.text_field :description %>
@@ -11,6 +22,7 @@
   <%= f.check_box :status %>
   <%= f.submit 'Criar' %>
 <% end %>
+</div>
 
 
  
